@@ -20,15 +20,14 @@ import java.util.Map;
 /**
  * Autowired报红解决办法:
  * 1.使用lombok:
- *
- * @RequiredArgsConstructor(onConstructor = @__(@Autowired))
- * final修饰变量：private final UserMapper userMapper;
+ *      @RequiredArgsConstructor(onConstructor = @__(@Autowired))
+ *      final修饰变量：private final UserMapper userMapper;
  * 2.xxxMapper上使用@Repository注解
  * 3.将@Autowired(根据类型)用@Resource(先根据名字，再根据类型)代替
  */
 @Service
 //@RequiredArgsConstructor(onConstructor = @__(@Autowired))
-@Log4j2 //日志注解
+@Log4j2 //lombok日志注解
 public class UserServiceImpl implements IUserService {
 
 
@@ -59,13 +58,18 @@ public class UserServiceImpl implements IUserService {
 
     @Override
     public List<UserDo> getUserList(int pageIndex, int pageSize, Map<String, Object> param) {
-        Page<UserDo> page = new Page(pageIndex, pageSize);//设置分页对象
-        QueryWrapper<UserDo> wrapper = new QueryWrapper();//条件查询对象
-        if (!StringUtils.isEmpty(param.get("userName"))) {
-            wrapper.like("username", param.get("userName"));
+        try {
+            Page<UserDo> page = new Page(pageIndex, pageSize);//设置分页对象
+            QueryWrapper<UserDo> wrapper = new QueryWrapper();//条件查询对象
+            if (!StringUtils.isEmpty(param.get("userName"))) {
+                wrapper.like("username", param.get("userName"));
+            }
+            page = userMapper.selectPage(page, wrapper);
+            return page.getRecords();//获取数据
+        } catch (Exception e) {
+            log.error("分页获取数据失败，e={}", e);
+            return null;
         }
-        page = userMapper.selectPage(page, wrapper);
-        return page.getRecords();//获取数据
     }
 
     //不止一个作业：完成数据表增删改查和分页
