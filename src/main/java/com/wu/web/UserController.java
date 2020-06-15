@@ -15,8 +15,9 @@ import java.util.Map;
 @Log4j2 //lombok日志注解
 public class UserController {
 
+    //当UserService实现类有两个以上的时候，会造成了冲突，需要Qualifier通过名称指定实现类
     @Autowired
-    //@Qualifier("IUserService")//指定service
+    @Qualifier("userServiceImpl")// 两个结合起来可以根据名字和类型注入,指定beanName
             IUserService userService;
 
     /**
@@ -75,6 +76,19 @@ public class UserController {
      *      2.研究一下：lomobok
      *      3.研究一下：日志框架
      *      4.查看一个面试题：@Resource和@AutoWrired的差异和区别。
+     *          @Autowire 默认按照类型装配，默认情况下它要求依赖对象必须存在，不存在会NullpointException，
+     *          如果允许为null，可以设置它required属性为false，如果我们想使用按照名称装配，可以结合@Qualifier注解一起使用;
+     *
+     *          @Resource默认按照名称装配，当找不到与名称匹配的bean才会按照类型装配，可以通过name属性指定，
+     *          如果没有指定name属性，当注解标注在字段上，即默认取字段的名称作为bean名称寻找依赖对象，
+     *          当注解标注在属性的setter方法上，即默认取属性名作为bean名称寻找依赖对象.
+     *
+     *          @Autowired字段注入会产生警告，并且建议使用构造方法注入。而使用@Resource不会有警告。
+     *
+     *          不建议使用字段注入和setter注入的方法，@Autowired可能引起NullPointerException，@Resource不能将属性设置为final。
+     *          从spring4开始官方一直推荐使用构造方法注入。但是构造方法注入只能使用@Autowired，不能使用@Resource。
+     *
+     * 推荐使用：@Resource注解在字段上，这样就不用写setter方法了，并且这个注解是属于J2EE的，减少了与spring的耦合。这样代码看起就比较优雅。如果要字段注入，使用@Resource；要构造方法注入，使用@Autowired。
      */
 
 }

@@ -23,7 +23,7 @@ import java.util.Map;
  *      @RequiredArgsConstructor(onConstructor = @__(@Autowired))
  *      final修饰变量：private final UserMapper userMapper;
  * 2.xxxMapper上使用@Repository注解
- * 3.将@Autowired(根据类型)用@Resource(先根据名字，再根据类型)代替
+ * 3.将@Autowired(属于spring的,根据类型)用@Resource(属于J2EE的,先根据名字，再根据类型)代替
  */
 @Service
 //@RequiredArgsConstructor(onConstructor = @__(@Autowired))
