@@ -6,51 +6,28 @@ import org.springframework.stereotype.Component;
 
 import java.util.Date;
 
+/**
+ * 公共字段自动填充 MybatisPlusConfig配置不生效解决
+ */
 @Component
 public class MybatisMetaObjectHandler implements MetaObjectHandler {
 
 
+    /**
+     * 新增数据执行
+     *
+     * @param metaObject
+     */
     @Override
     public void insertFill(MetaObject metaObject) {
-
-        /*boolean isdelete = metaObject.hasSetter("isdelete");
-        boolean year = metaObject.hasSetter("year");
-        boolean month = metaObject.hasSetter("month");
-        boolean date = metaObject.hasSetter("date");
-        boolean hour = metaObject.hasSetter("hour");
-        boolean minutes = metaObject.hasSetter("minutes");
-        boolean seconds = metaObject.hasSetter("seconds");
-        DateTime dateTime = new DateTime();
-
-        if (isdelete) {
-            setFieldValByName("isdelete", 0, metaObject);
-        }
-        if (year) {
-            setFieldValByName("year", dateTime.getYear(), metaObject);
-        }
-
-        if (month) {
-            setFieldValByName("month", dateTime.getMonthOfYear(), metaObject);
-        }
-
-        if (date) {
-            setFieldValByName("date", dateTime.getDayOfMonth(), metaObject);
-        }
-
-        if (hour) {
-            setFieldValByName("hour", dateTime.getHourOfDay(), metaObject);
-        }
-
-        if (minutes) {
-            setFieldValByName("minutes", dateTime.getMinuteOfHour(), metaObject);
-        }
-
-        if (seconds) {
-            setFieldValByName("seconds", dateTime.getSecondOfMinute(), metaObject);
-        }*/
+        this.setFieldValByName("createTime", new Date(), metaObject);
+        this.setFieldValByName("updateTime", new Date(), metaObject);
     }
 
-
+    /**
+     * 更新数据执行
+     * @param metaObject
+     */
     @Override
     public void updateFill(MetaObject metaObject) {
         Object updateTime = getFieldValByName("updatetime", metaObject);
