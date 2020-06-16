@@ -25,7 +25,7 @@ public class ResultController {
 
     @GetMapping("/getuser1/{id}")
     public ServerResponse getUser(@PathVariable("id") Long id) {
-        UserDo user = userService.getUser(id);
+        UserDo user = userService.selectById(id);
         return ServerResponse.success(UserResponseCode.LOGIN_SUCCESS, user);
     }
 

@@ -34,7 +34,7 @@ public class ResultController1 {
     @GetMapping("/getuser4/{id}")
     public UserDo getuser4(@PathVariable("id") Long id) {
         //System.out.println(1/0);//{status:500,msg:"服务出现故障.."} springmvc 全局异常处理
-        return userService.getUser(id);
+        return userService.selectById(id);
     }
 
     @GetMapping("/getuser5/{id}")//{id}= 13144730969

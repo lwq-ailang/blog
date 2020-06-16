@@ -1,5 +1,6 @@
 package com.wu.core;
 
+import com.baomidou.mybatisplus.core.injector.ISqlInjector;
 import com.baomidou.mybatisplus.extension.plugins.OptimisticLockerInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
 import org.mybatis.spring.annotation.MapperScan;
@@ -15,7 +16,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @MapperScan("com.wu.dao")
 public class MybatisPlusConfig {
 
-    //分页
+    //开启mybatis-plus分页功能
     @Bean
     public PaginationInterceptor paginationInterceptor() {
         PaginationInterceptor paginationInterceptor = new PaginationInterceptor();
@@ -27,15 +28,33 @@ public class MybatisPlusConfig {
     }
 
 
+    /**
+     * 乐观锁插件
+     *
+     * @return
+     */
     @Bean
     public OptimisticLockerInterceptor optimisticLockerInterceptor() {
         return new OptimisticLockerInterceptor();
     }
 
+    /**
+     * sql性能分析插件，输出sql语句及所需时间
+     * @return
+     */
     @Bean
-    @Profile({"dev", "test"})
+    @Profile({"dev", "test"})// 设置 dev test 环境开启
     public PerformanceMonitorInterceptor performanceMonitorInterceptor() {
         PerformanceMonitorInterceptor performanceMonitorInterceptor = new PerformanceMonitorInterceptor();
         return performanceMonitorInterceptor;
     }
+
+    /**
+     * sql注入器  逻辑删除插件
+     * @return
+     */
+//    @Bean
+//    public ISqlInjector iSqlInjector(){
+//        return new LogicSqlInjector();
+//    }
 }

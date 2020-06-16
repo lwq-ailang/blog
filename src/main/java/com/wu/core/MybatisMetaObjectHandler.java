@@ -20,8 +20,14 @@ public class MybatisMetaObjectHandler implements MetaObjectHandler {
      */
     @Override
     public void insertFill(MetaObject metaObject) {
-        this.setFieldValByName("createTime", new Date(), metaObject);
-        this.setFieldValByName("updateTime", new Date(), metaObject);
+        Object createTime = getFieldValByName("createTime", metaObject);
+        Object updateTime = getFieldValByName("updateTime", metaObject);
+        if (createTime == null) {
+            setFieldValByName("createTime", new Date(), metaObject);//mybatis-plus版本2.0.9+
+        }
+        if (updateTime == null) {
+            setFieldValByName("updateTime", new Date(), metaObject);//mybatis-plus版本2.0.9+
+        }
     }
 
     /**
@@ -33,7 +39,7 @@ public class MybatisMetaObjectHandler implements MetaObjectHandler {
         Object updateTime = getFieldValByName("updatetime", metaObject);
         if (updateTime == null) {
             // updateTime 是实体的属性名
-            setFieldValByName("updatetime", new Date(), metaObject);
+            setFieldValByName("updatetime", new Date(), metaObject);//mybatis-plus版本2.0.9+
         }
     }
 

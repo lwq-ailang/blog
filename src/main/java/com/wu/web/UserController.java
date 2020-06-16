@@ -42,7 +42,7 @@ public class UserController {
      */
     @GetMapping("/getuser")
     public UserDo getUser(Long userId) {
-        return userService.getUser(userId);
+        return userService.selectById(userId);
     }
 
     /**
@@ -51,7 +51,7 @@ public class UserController {
     @GetMapping("/getuser1")
     public UserDo getUser1(HttpServletRequest request) {
         Long userId = Long.valueOf(request.getParameter("id"));
-        return userService.getUser(userId);
+        return userService.selectById(userId);
     }
 
     /**
@@ -60,7 +60,7 @@ public class UserController {
      */
     @GetMapping("/getuser2/{id}")
     public UserDo getUser2(@PathVariable("id") Long userId) {
-        return userService.getUser(userId);
+        return userService.selectById(userId);
     }
 
     /**

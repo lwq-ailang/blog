@@ -1,9 +1,6 @@
 package com.wu.pojo;
 
-import com.baomidou.mybatisplus.annotation.FieldFill;
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.*;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -35,20 +32,24 @@ import java.util.Date;
 public class UserDo {
 
     @NonNull
-    @TableId // 主键
+    @TableId // 声明为主键(默认叫id)
     private Long id;
     // 用户名
+    @TableField(condition = SqlCondition.EQUAL)
     private String username;
     // 用户账号
     private String account;
     // 用户密码
     private String password;
     // 日期 create_time 默认遵循驼峰
-    /**
-     * 创建时间
-     */
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @JsonFormat(timezone = "GMT+8", pattern = "yyyy-MM-dd HH:mm:ss")
-    @TableField(value = "create_time", fill = FieldFill.INSERT)
+    @TableField(value = "create_time", fill = FieldFill.INSERT)//指定数据库字段名
     private Date createTime;
+
+    //三种排除非表字段方式：1.transient（不参与序列化） 2.staticstatic（参与序列化）3.使用@TableField(exist = false)
+    //private transient String remark;
+    //private @TableField(exist = false) String remark;
+    @TableField(exist = false)
+    private transient String remark;
 }
