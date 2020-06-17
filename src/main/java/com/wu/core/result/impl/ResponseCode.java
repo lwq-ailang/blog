@@ -7,7 +7,6 @@ import com.wu.core.result.ResponseInterface;
  * 为什么不是类呢？因为枚举具名，类不能该名字
  * 其实枚举是：它一种特殊的类。它是可以定义别的名称来调用自身的构造函数的类。
  */
-
 /**
  * 枚举类用来实现统一返回的接口，可以自定义返回结果内容
  */
@@ -15,9 +14,19 @@ public enum ResponseCode implements ResponseInterface {
 
     // TODO：什么是枚举：他是一种特殊得类，是一种可以具名调用自身构造函数得类。
     // 除非你状态管理是一个定义这样是没问题
+    SERVER_ERROR(500, "服务器忙!", ""),
+
     SUCCESS(200, "成功!", ""),
     USERNAME_EMPTY(701, "用户名不允许为空", "username"),
-    PASSWORD_EMPTY(702, "密码不允许为空", "password");
+    PASSWORD_EMPTY(702, "密码不允许为空", "password"),
+
+    //校验
+    ISEMPTY(701, "属性不允许为空!", ""),
+    LENGTH(702, "长度不合法！", ""),
+    PHONEERROR(703, "手机格式不正确!", ""),
+    ISNULL(704, "对象不允许为空!", ""),
+    ISSAME(705, "两个值不能相同!", ""),
+    ISDIFF(706, "两个值必须相同!", "");
 
     private final int status;
     private final String msg;
@@ -43,6 +52,5 @@ public enum ResponseCode implements ResponseInterface {
     public String getField() {
         return field;
     }
-
 
 }

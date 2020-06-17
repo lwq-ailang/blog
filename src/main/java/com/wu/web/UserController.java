@@ -56,7 +56,7 @@ public class UserController {
 
     /**
      * get请求通过@PathVariable获取路径中的参数
-     * TODO:http://localhost:8080/getuser/13144730969
+     * http://localhost:8080/getuser/13144730969
      */
     @GetMapping("/getuser2/{id}")
     public UserDo getUser2(@PathVariable("id") Long userId) {
