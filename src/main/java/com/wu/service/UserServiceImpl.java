@@ -61,6 +61,11 @@ public class UserServiceImpl implements IUserService {
         return userMapper.getUser(id);
     }
 
+    @Override
+    public UserDo getOne(Long id) {
+        return userMapper.getOne(id);
+    }
+
     /**
      * 根据Ids查询多个
      *

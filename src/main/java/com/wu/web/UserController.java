@@ -60,7 +60,7 @@ public class UserController {
      */
     @GetMapping("/getuser2/{id}")
     public UserDo getUser2(@PathVariable("id") Long userId) {
-        return userService.selectById(userId);
+        return userService.getOne(userId);
     }
 
     /**

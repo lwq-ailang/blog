@@ -12,6 +12,8 @@ public interface IUserService {
 
     UserDo getUser2(Long id);
 
+    UserDo getOne(Long id);
+
     List<UserDo> getUserList(int pageIndex, int pageSize, Map<String, Object> param);
 
     List<UserDo> selectByIds(String ids);

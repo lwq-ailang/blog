@@ -43,7 +43,7 @@ public class UserDo {
     private String password;
     // 日期 create_time 默认遵循驼峰
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    @JsonFormat(timezone = "GMT+8", pattern = "yyyy-MM-dd HH:mm:ss")
+    //@JsonFormat(timezone = "GMT+8", pattern = "yyyy-MM-dd HH:mm:ss")
     @TableField(value = "create_time", fill = FieldFill.INSERT)//指定数据库字段名
     private Date createTime;
 
@@ -52,4 +52,6 @@ public class UserDo {
     //private @TableField(exist = false) String remark;
     @TableField(exist = false)
     private transient String remark;
+
+    private String updateTime;
 }
