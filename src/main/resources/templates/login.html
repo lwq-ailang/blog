@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <#include "common/header.html"/>
+</head>
+<body>
+<h1>我是一个登陆页面</h1>
+<form action="">
+    <p>用户：<input type="text" id="account"></p>
+    <p>密码：<input type="text" id="password"></p>
+    <p>
+        <button id="loginbtn">登陆</button>
+    </p>
+</form>
+
+<script>
+    $(function () {
+        // 给登陆按钮绑定点击事件
+        $("#loginbtn").on("click", function (e) {
+            // 3：获取用户名和密码
+            var account = $("#account").val();
+            var password = $("#password").val();
+            $.ajax({
+                type: "post",
+                url: basePath + "/logined",
+                data: {"account": account, "password": password},
+                success: function (hotel) {
+                    // {statuc:200,data:{},msg:""}// 不是js，它就是一个纯文本
+                    // 在开发过程一种如果出现数据确实打印出来，格式也是正确的，但是总是取不出来。
+                    console.log(typeof res);//如果string用JSON.parse()
+                    var json = JSON.parse(res);
+                    if (json.data == "success") {
+                        window.location.href = basePath + "/index"
+                    } else {
+                        alert("你输入的用户名和密码输入有误...");
+                        $("#password").val("").focus();
+                    }
+                }
+            })
+            // 阻止button提交表单
+            e.preventDefault();
+        })
+    })
+</script>
+</body>
+</html>

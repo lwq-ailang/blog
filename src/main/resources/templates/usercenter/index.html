@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <#include "../common/header.html"/>
+</head>
+<body>
+
+<h1>我是用户中心的首页</h1>
+
+<!--
+    相对路径问题:
+    相对路径是指：你页面资源访问都以当前访问的路径为基础。
+
+    例如：js引入资源是：<script src="js/jquery.min.js"></script>
+    例如：图片引入资源是：<img src="images/1.png"></script>
+
+
+    比如你访问的路径是：http://localhost:8080/reg
+    js 静态资源： http://localhost:8080/js/jquery.min.js
+    images 静态资源： http://localhost:8080/images/1.png
+
+
+
+    比如你访问的路径是：http://localhost:8080/a/b/c
+    js 静态资源： http://localhost:8080/usercenter/js/jquery.min.js(错误)
+    images 静态资源： http://localhost:8080/usercenter/images/1.png（错误）
+    怎么办：加'../'
+
+
+    通用解决方案：全路径
+
+-->
+
+<script>
+    $(function () {
+        alert(1);
+    })
+</script>
+
+</body>
+</html>

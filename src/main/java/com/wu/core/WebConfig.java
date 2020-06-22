@@ -1,10 +1,16 @@
 package com.wu.core;
 
+import com.wu.core.arguments.UserArgumentResolver;
 import com.wu.core.i18n.MyLocaleResolver;
+import com.wu.core.interceptor.LoginInterceptor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.method.support.HandlerMethodArgumentResolver;
 import org.springframework.web.servlet.LocaleResolver;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
+import java.util.List;
 
 /**
  * 扩展SpringMVC
@@ -29,4 +35,25 @@ public class WebConfig implements WebMvcConfigurer {
     public LocaleResolver localeResolver() {
         return new MyLocaleResolver();
     }
+
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        //registry.addInterceptor(new BasePathInterceptor()).addPathPatterns("/**");
+        registry.addInterceptor(new LoginInterceptor())
+                //.addPathPatterns("/pay","/course/save","/course/update");
+                // 2：通配符简化操作
+                //.addPathPatterns("/pay","/course/list")
+                // 3：统一配置
+                .addPathPatterns("/admin/**")
+                // 4：白名单。代表不需要拦截的请求
+                .excludePathPatterns("/admin/course/list");
+
+    }
+
+    @Override
+    public void addArgumentResolvers(List<HandlerMethodArgumentResolver> resolvers) {
+        // 注册参数UserArgumentResolver注入器.让springmvc容器去加载
+        resolvers.add(new UserArgumentResolver());
+    }
+
 }

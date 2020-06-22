@@ -35,7 +35,7 @@ public class UserController {
     //当UserService实现类有两个以上的时候，会造成了冲突，需要Qualifier通过名称指定实现类
     @Autowired
     @Qualifier("userServiceImpl")// 两个结合起来可以根据名字和类型注入,指定beanName
-            IUserService userService;
+    private IUserService userService;
 
     /**
      * 直接把表单的参数写在Controller相应的方法的形参中，适用于get方式提交，不适用于post方式提交。
@@ -67,6 +67,7 @@ public class UserController {
      * 使用@ModelAttribute注解获取POST请求的FORM表单数据(传对象)
      */
     @PostMapping("/getuser3")
+    //@ResponseBody//加上 @ResponseBody 代表异步请求的时候直接把return的结果返回给异步succes中获取
     public UserDo getUser3(@ModelAttribute("user") UserDo user) {
         return userService.getUser2(user.getId());
     }
