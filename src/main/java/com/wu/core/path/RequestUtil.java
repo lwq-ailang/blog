@@ -1,4 +1,4 @@
-package com.wu.util;
+package com.wu.core.path;
 
 import javax.servlet.http.HttpServletRequest;
 

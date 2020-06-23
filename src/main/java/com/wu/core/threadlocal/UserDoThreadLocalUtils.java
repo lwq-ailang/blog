@@ -1,16 +1,15 @@
-package com.wu.util;
+package com.wu.core.threadlocal;
 
 
 import com.wu.pojo.UserDo;
 
 /**
- * 用户线程副本类
+ * 案例测试：用户线程副本类
  */
 public class UserDoThreadLocalUtils {
 
-    // 创建一个线程副本存储用户信息 jdk ---- ThreadLocal
+    // TODO 创建一个线程副本存储用户信息 jdk ---- ThreadLocal
     private static ThreadLocal<UserDo> userDoThreadLocal = new ThreadLocal<>();
-
 
     public static void set(UserDo userDo) {
         userDoThreadLocal.set(userDo);

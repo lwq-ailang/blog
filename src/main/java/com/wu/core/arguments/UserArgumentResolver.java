@@ -35,8 +35,7 @@ public class UserArgumentResolver implements HandlerMethodArgumentResolver {
         System.out.println("3--------------resolveArgument");
         // 获取session中的数据 ， NativeWebRequest.SCOPE_SESSION作用域是session
         UserDo userDo = (UserDo) webRequest.getAttribute(Contants.SESSION_USER, NativeWebRequest.SCOPE_SESSION);// 1代表session对象 0请求对象
-        // redis
-        //UserDo userDo = (UserDo) webRequest.getAttribute(Contants.SESSION_USER, NativeWebRequest.SCOPE_SESSION);// 1代表session对象 0请求对象
+        // redis 分布式架构
         return userDo;
     }
 

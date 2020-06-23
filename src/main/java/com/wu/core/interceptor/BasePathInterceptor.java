@@ -1,12 +1,11 @@
 package com.wu.core.interceptor;
 
-import com.wu.util.RequestUtil;
+import com.wu.core.path.RequestUtil;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  * 拦截器
@@ -15,6 +14,7 @@ public class BasePathInterceptor implements HandlerInterceptor {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+        //拦截器添加全路径
         request.setAttribute("basePath", RequestUtil.getBasePath(request));
         return true;
     }

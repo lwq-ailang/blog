@@ -1,13 +1,12 @@
 package com.wu.service;
 
+import com.wu.core.threadlocal.UserDoThreadLocalUtils;
 import com.wu.pojo.UserDo;
-import com.wu.util.HttpRequestThreadLocalUtils;
-import com.wu.util.UserDoThreadLocalUtils;
+import com.wu.core.threadlocal.HttpRequestThreadLocalUtils;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.context.request.RequestContextHolder;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -28,5 +27,6 @@ public class PayServiceImpl implements IPayService {
         UserDo userDo = UserDoThreadLocalUtils.get();
         HttpServletRequest httpServletRequest = HttpRequestThreadLocalUtils.get();
         System.out.println(userDo);
+        System.out.println(httpServletRequest);
     }
 }

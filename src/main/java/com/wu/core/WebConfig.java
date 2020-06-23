@@ -2,6 +2,7 @@ package com.wu.core;
 
 import com.wu.core.arguments.UserArgumentResolver;
 import com.wu.core.i18n.MyLocaleResolver;
+import com.wu.core.interceptor.BasePathInterceptor;
 import com.wu.core.interceptor.LoginInterceptor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -36,18 +37,27 @@ public class WebConfig implements WebMvcConfigurer {
         return new MyLocaleResolver();
     }
 
+    /**
+     * 注册拦截器：因为在开发中并不是所有的路由都需要拦截器处理。所有要注册那些路由要进行拦截如下：
+     */
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        //registry.addInterceptor(new BasePathInterceptor()).addPathPatterns("/**");
         registry.addInterceptor(new LoginInterceptor())
-                //.addPathPatterns("/pay","/course/save","/course/update");
                 // 2：通配符简化操作
-                //.addPathPatterns("/pay","/course/list")
-                // 3：统一配置
+                //.addPathPatterns("/pay","/course/**");//拦截那些路径
+                /**
+                 * 拦截器的通用配置:
+                 *      在上面的代码中，如果我模块非常的多，有几十个，
+                 *      那么我拦截器器注册`addPathPatterns` 这里就需要不停的去配置和修改。
+                 *      那么有一种只配置一次少量修改呢？有，统一前缀，（有点类似于springcloud的网关路由）。
+                 */
+                // 3：统一配置:以admin开头全部拦截，*：代表一级 **：代表子孙级
                 .addPathPatterns("/admin/**")
                 // 4：白名单。代表不需要拦截的请求
                 .excludePathPatterns("/admin/course/list");
-
+        //先进拦截器-->为所有页面，生成全路径
+        //不建议使用
+        //registry.addInterceptor(new BasePathInterceptor()).addPathPatterns("/**");
     }
 
     @Override

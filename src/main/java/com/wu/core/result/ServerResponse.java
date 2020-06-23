@@ -1,5 +1,7 @@
 package com.wu.core.result;
 
+import com.wu.core.result.impl.ResponseCode;
+
 /**
  * 返回结果处理类
  */
@@ -33,22 +35,21 @@ public class ServerResponse {
     // 访问修饰符修饰的成员，对内无效，对外有效？
     // 定义一个成功返回的方法 ,为什么是static的，
     // 答：因为方便调用。因为静态成员可以直接都通类调用
-    /*private static ServerResponse success(Object data,String msg){
+    public static ServerResponse vsuccess(Object data, String msg) {
         return new ServerResponse(ResponseCode.SUCCESS.getStatus(),data,msg);
     }
 
-    private static ServerResponse success(Object data){
+    public static ServerResponse vsuccess(Object data) {
         return new ServerResponse(ResponseCode.SUCCESS.getStatus(),data,null);
     }
 
-    private static ServerResponse error(int status,String msg){
+    public static ServerResponse verror(int status, String msg) {
         return new ServerResponse(status,null,msg);
     }
 
-    private static ServerResponse error(int status,String msg,String filed){
+    public static ServerResponse verror(int status, String msg, String filed) {
         return new ServerResponse(status,null,msg,filed);
-    }*/
-
+    }
 
     //其实就利用java多态：使用父类作为参数，子类实现
     public static ServerResponse success(ResponseInterface responseCode, Object data) {

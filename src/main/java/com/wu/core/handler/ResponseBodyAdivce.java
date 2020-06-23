@@ -1,7 +1,8 @@
 package com.wu.core.handler;
 
+import com.wu.core.exception.ErrorResult;
 import com.wu.core.result.ServerResponse;
-import com.wu.core.result.impl.ResponseCode;
+import com.wu.util.JsonUtil;
 import org.springframework.core.MethodParameter;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
@@ -39,11 +40,18 @@ public class ResponseBodyAdivce implements ResponseBodyAdvice<Object> {
      */
     @Override
     public Object beforeBodyWrite(Object o, MethodParameter methodParameter, MediaType mediaType, Class<? extends HttpMessageConverter<?>> aClass, ServerHttpRequest serverHttpRequest, ServerHttpResponse serverHttpResponse) {
-
-        //if(o instanceof ErrorResponseCode){
-        //    return ServerResponse.error(ResponseCode.USERNAME_EMPTY);
-        //}else {
-        return ServerResponse.success(ResponseCode.SUCCESS, o);
-        //}
+        if (o instanceof ErrorResult) {
+            ErrorResult errorResult = (ErrorResult) o;
+            return ServerResponse.verror(errorResult.getStatus(), errorResult.getMessage());
+        } else {
+            // 字符串是单独处理,为什么呢？因为springmvc的字符串转换器是单独一个StringConvetFormatter
+            if (o instanceof String) {
+                // 转出字符串返回 ,这里为什么还要转换一次，因为我要保证格式的一致性{status:200,data:{}}
+                // 并且响应头是：application/textplain 文本
+                return JsonUtil.obj2String(ServerResponse.vsuccess(o));
+            }
+            // 如果是非字符串呢？直接转化jackson格式，并且响应头是：application/json
+            return ServerResponse.vsuccess(o);
+        }
     }
 }
