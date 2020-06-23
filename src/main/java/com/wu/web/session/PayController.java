@@ -76,10 +76,10 @@ public class PayController extends BaseController {
     }
 
     /**
-     * 4：使用ThreadLocal的方式获取:
-     * ThreadLocal是一个线程副本，它的原理是一个`WeakupHashMap<String,Object>`。
-     * 但是这个东西为什么出现在程序中，并且在springmvc, spring、Hibernate、Struts2的源码中大量看见它的身影，用它能解决什么问题呢？
-     * 使用规则：必须定义是一个成员变量。不是局部变量。因为线程处理对象。它本身的作用：就用存储线程在执行对象中的一些数据。
+     * TODO 第四种：使用ThreadLocal的方式获取:
+     *      ThreadLocal是一个线程副本，它的原理是一个`WeakupHashMap<String,Object>。
+     *      但是这个东西为什么出现在程序中，并且在springmvc, spring、Hibernate、Struts2的源码中大量看见它的身影，用它能解决什么问题呢？
+     *   使用规则：必须定义是一个成员变量。不是局部变量。因为线程处理对象。它本身的作用：就用存储线程在执行对象中的一些数据。
      */
 
     @GetMapping("alipay")
