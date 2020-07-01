@@ -11,8 +11,8 @@
 <body>
 <h1>我是一个登陆页面</h1>
 <form action="">
-    <p>用户：<input type="text" id="account"></p>
-    <p>密码：<input type="text" id="password"></p>
+    <p>用户：<input type="text" id="account" value="wu"></p>
+    <p>密码：<input type="text" id="password" value="wu"></p>
     <p>
         <button id="loginbtn">登陆</button>
     </p>
@@ -29,13 +29,14 @@
                 type: "post",
                 url: basePath + "/logined",
                 data: {"account": account, "password": password},
-                success: function (hotel) {
+                success: function (res) {
                     // {statuc:200,data:{},msg:""}// 不是js，它就是一个纯文本
                     // 在开发过程一种如果出现数据确实打印出来，格式也是正确的，但是总是取不出来。
-                    console.log(typeof res);//如果string用JSON.parse()
                     var json = JSON.parse(res);
                     if (json.data == "success") {
-                        window.location.href = basePath + "/index"
+                        var link = localStorage.getItem("itbooking_link");
+                        // 在js中，如果把一个不为0,false,undefind,null的变量做为判断都是true,否则都是false
+                        window.location.href = link ? link : basePath;
                     } else {
                         alert("你输入的用户名和密码输入有误...");
                         $("#password").val("").focus();

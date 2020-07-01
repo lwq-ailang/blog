@@ -33,10 +33,11 @@ public class LoginInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         HttpSession session = request.getSession();
-        //todo 分布式会话，放在Redis中，跨服务
+        //todo-->分布式会话，放在Redis中，跨服务
+        //获取登录的信息
         UserDo userDo = (UserDo) session.getAttribute("sessionuser");
         if (userDo == null) {
-            response.sendRedirect("login");//重定向
+            response.sendRedirect("../login");//重定向：没有登录则跳转到登录页面
             return false;
         }
         //TODO：把用户信息放入到threadLocal线程副本中

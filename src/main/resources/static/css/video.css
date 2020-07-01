@@ -1,0 +1,878 @@
+.nav {
+    right: 392px;
+    left: 0;;
+    width: auto !important;
+}
+
+.showchapterlink {
+    position: absolute;
+    z-index: 100;
+    color: #fff;
+    top: 0;
+    left: -12px;
+    transition: .6s ease;
+    cursor: w-resize;
+    background: #3a3e4a;
+    height: 100%;
+    width: 12px;
+}
+
+.showchapterlink i {
+    font-size: 18px;
+    color: #eee;
+    position: absolute;
+    top: 40%;
+    left: -6px
+}
+
+.vol-l-con:hover .showchapterlink {
+    right: 0;
+}
+
+.w1441 {
+    width: 98% !important;
+}
+
+.w1440 {
+    width: 100%;
+}
+
+.multi-page .cur-list .list-box li.on.active {
+    background: #e5e9ef
+}
+
+#bofqi {
+    bottom: 18px;
+    top: 60px;
+    left: 18px;
+    right: 18px;
+    position: absolute;
+    z-index: 90;
+}
+
+#playerWrap {
+    position: absolute;
+    top: 0;
+    right: 380px;
+    left: 0;
+    bottom: 0;
+}
+
+.g-sd2 {
+    box-shadow: 0px 1px 8px #333;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 380px;
+    background: #4b505f;
+    z-index: 91
+}
+
+.r-con {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.9);
+    width: 380px;
+}
+
+.f-hide {
+    text-indent: -9999px;
+    overflow: hidden;
+}
+
+.f-ib {
+    display: inline-block;
+    zoom: 1;
+    *display: inline;
+}
+
+.f-dn {
+    display: none;
+}
+
+.f-db {
+    display: block;
+}
+
+.f-pr {
+    position: relative;
+}
+
+.f-pf {
+    position: fixed;
+}
+
+.f-af {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.f-fl {
+    float: left;
+}
+
+.f-fr {
+    float: right;
+}
+
+.m-toolbarForum .edit .postBtn {
+    margin-top: 5px;
+    display: block;
+    width: 78px;
+    width: 78px;
+    text-decoration: none;
+    background: #22ab28;
+}
+
+.u-cmtwrp {
+    position: relative;
+    z-index: 102;
+}
+
+.u-cmtwrp .u-cmtedtip2 {
+    position: absolute;
+    top: -20px;
+    right: 0;
+}
+
+.u-cmtwrp .u-cmtedit {
+    position: relative;
+    background: none repeat scroll 0 0 #FAFAFA;
+    border: 1px solid #DFDFDF;
+    box-shadow: inset 1px 1px 2px #DFDFDF;
+    padding: 5px;
+}
+
+.u-cmtwrp .u-cmtedit .wrap {
+    width: 100%;
+    height: 100%;
+}
+
+.u-cmtwrp .u-cmtedit .mtxt {
+    width: 100%;
+    height: 100%;
+    font-size: 12px;
+    line-height: 23px;
+    background: transparent;
+    border: none;
+    overflow-y: auto;
+    overflow-x: hidden;
+    resize: none;
+}
+
+.u-cmtwrp .u-cmtedit .hint {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: #999;
+}
+
+.m-chapterList {
+    border-top: 0;
+    text-align: left;
+    position: relative;
+    z-index: 999;
+    padding-bottom: 1em;
+    font-size: 12px;
+}
+
+.m-chapterList .chapter {
+    overflow: hidden;
+    font-weight: bold;
+    color: #666;
+    font-size: 14px;
+    font-family: '微软雅黑';
+    font-weight: bolder;
+    padding: 10px 12px 0 12px;
+    line-height: 40px;
+    cursor: default;
+}
+
+.m-chapterList .ch {
+    width: 41px;
+    height: 40px;
+    text-align: left;
+    color: #fff;
+}
+
+.m-chapterList .section .ksname {
+    padding-left: 8px;
+    color: #b3b1b1;
+    font-weight: bold;
+    max-width: 230px;
+    height: 36px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.m-chapterList .chaptericon {
+    height: 26px;
+    width: 26px;
+    margin: 6px;
+    text-align: center;
+    line-height: 26px;
+    background: #313131;
+    position: relative;
+    left: -10px;
+    border-radius: 50%;
+    color: #fff0f6
+}
+
+.m-chapterList .chaptername {
+    width: 248px;
+    padding-left: 2px;
+    color: #fff;
+}
+
+.m-chapterList .section {
+    height: 36px;
+    line-height: 36px;
+    padding: 0 12px;
+    cursor: pointer;
+    transition: all 0.15s ease-out;
+    overflow: hidden
+}
+
+.m-chapterList .section-cur-on, .m-chapterList .section .icon-video2 {
+    color: #fff;
+}
+
+.m-chapterList .section-cur-on, .m-chapterList .section .kstime {
+    color: #fff;
+}
+
+.m-chapterList .section-cur-on, .m-chapterList .section-cur .icon-video2 {
+    color: #3da147 !important;
+}
+
+.m-chapterList .section-cur-on, .m-chapterList .section-cur {
+    background: #3a3e4a !important;
+}
+
+.m-chapterList .section-cur-on, .m-chapterList .section-cur .icon-LOCKOPEN {
+    color: #10ae58 !important;
+}
+
+.m-chapterList .section-cur-on, .m-chapterList .section-cur .kstime {
+    color: #10ae58 !important;
+}
+
+.m-chapterList .section-cur-on, .m-chapterList .section-cur-over .icon-video2 {
+    color: #ef6161;
+}
+
+.m-chapterList .section-cur-on, .m-chapterList .section-cur-over .icon-LOCKOPEN {
+    color: #ef6161;
+}
+
+.m-chapterList .section-cur-on, .m-chapterList .section-cur-over .kstime {
+    color: #ef6161;
+}
+
+.m-chapterList .section-cur-on, .m-chapterList .section span {
+    position: relative;
+    z-index: 2;
+}
+
+.m-chapterList .section .ks {
+    width: 40px;
+    color: #999;
+    text-align: left;
+    font-size: 12px;
+}
+
+.m-chapterList .section .ks-cur {
+    color: #fff;
+}
+
+.m-chapterList .section .ksw {
+    height: 14px;
+    width: 14px;
+    margin: 11px 0 0 0;
+    background: #f5f7fa;
+    transition: all 0.15s ease-out;
+}
+
+.m-chapterList .section .ksicon {
+    display: block;
+    height: 14px;
+    width: 16px;
+}
+
+.u-rating span {
+    color: #10ae58;
+    vertical-align: text-top;
+    margin-left: 10px;
+    font-size: 12px;
+}
+
+.u-rating_tip {
+    font-size: 12px;
+    color: #666;
+    white-space: nowrap;
+    top: -47px;
+    left: -15px;
+    border: 1px solid #ddd;
+    background: #fff;
+    padding: 8px 12px;
+    border-radius: 2px;
+}
+
+.u-rating_tip:before {
+    content: '';
+    position: absolute;
+    border: 8px solid transparent;
+    bottom: -16px;
+    left: 13px;
+    border-top: 8px solid #ddd;
+}
+
+.u-rating_tip:after {
+    content: '';
+    position: absolute;
+    border: 7px solid transparent;
+    bottom: -14px;
+    left: 14px;
+    border-top: 7px solid #fff;
+}
+
+.u-moocbtn {
+    display: inline-block;
+    padding: 4px 9px;
+    font-size: 14px;
+    line-height: 28px;
+    color: #666;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    min-width: 80px;
+    font-family: "Arial", "Hiragino Sans GB", "Microsoft YaHei", \5fae\8f6f\96c5\9ed1, "Helvetica", "sans-serif";
+    border: 1px solid #999;
+    border-radius: 4px;
+    background-color: #E1E1E1;
+    background-repeat: repeat-x;
+    background-image: -khtml-gradient(linear, left top, left bottom, from(#EBEBEB), to(#E1E1E1));
+    background-image: linear-gradient(#EBEBEB, #E1E1E1);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.u-moocbtn:hover, .u-moocbtn.hvr {
+    background-color: #EDEDED;
+    background-repeat: repeat-x;
+    background-image: -khtml-gradient(linear, left top, left bottom, from(#F6F6F6), to(#EDEDED));
+    background-image: linear-gradient(#F6F6F6, #EDEDED);
+}
+
+.u-moocbtn-sm {
+    padding: 5px 6px;
+    font-size: 12px;
+    line-height: 14px;
+    min-width: 50px;
+}
+
+.u-forumtag {
+    color: #49494a;
+    padding: 3px 6px;
+    border: 1px solid #a7d2fd;
+    background-color: #e3f8ff;
+    border-radius: 2px;
+    margin-right: 1px;
+}
+
+.u-forumtag1 {
+    border-color: #ffb49a;
+    background-color: #ffe2d9;
+}
+
+.u-forumtag2 {
+    padding: 3px 10px;
+    border-color: #f7e89d;
+    background-color: #fbf5d3;
+}
+
+.u-forumname, .u-forumanonymous {
+    color: #10ae58;
+}
+
+.u-forumname:hover {
+    text-decoration: underline;
+}
+
+.u-forumlesson {
+    padding-left: 20px;
+    color: #666;
+    font-size: 12px;
+    background-position: -2px -568px;
+}
+
+.u-banzhu {
+    background-color: #10ae58;
+    color: #fff;
+    padding: 2px 5px;
+    margin-left: 10px;
+}
+
+.u-forumli {
+    cursor: pointer;
+    padding: 0 20px;
+    font-size: 12px;
+}
+
+.u-forumli:hover {
+    background-color: #f5f5f5;
+}
+
+.f-cb .head {
+    border-bottom: 1px solid #ebebeb;
+    padding-bottom: 10px;
+}
+
+.u-forumli .forumi {
+    padding: 20px 0;
+}
+
+.u-forumli .head .img {
+    vertical-align: middle;
+    border-radius: 15px;
+    width: 30px;
+    height: 30px;
+}
+
+.u-forumli .head .time {
+    margin-left: 20px;
+}
+
+.u-forumli .head .panel {
+    margin-top: 2px;
+    display: none
+}
+
+.u-forumli:hover .head .panel {
+    display: inline-block;
+}
+
+.user-comments .panel {
+    display: none
+}
+
+.user-comments:hover .panel {
+    display: inline-block;
+}
+
+.user-comments:hover .s-fc5 {
+    color: #333 !important;
+}
+
+.u-forumli .cnt {
+    padding: 20px 0 14px 0;
+    line-height: 24px;
+}
+
+.u-forumli .post {
+    font-size: 14px;
+    word-break: break-all;
+    display: block;
+    padding: 10px 0;
+}
+
+.u-coursetitle {
+    width: 165px;
+    text-align: left;
+    line-height: 19px;
+    color: #fff;
+    font-size: 12px;
+    text-align: left;
+}
+
+.u-coursetitle a {
+    font-size: 15px;
+    display: block;
+    color: #333;
+}
+
+.u-coursetitle a:hover {
+    color: #10ae58;
+}
+
+.u-coursetitle p {
+    color: #666;
+}
+
+.u-coursetitle p a {
+    color: #999;
+}
+
+.u-coursetitle p a em {
+    color: #999;
+    font-weight: normal;
+}
+
+.u-coursetitle .cmt {
+    float: left;
+    margin: 8px 0 0 0;
+    color: #666;
+}
+
+.u-coursetitle .starall {
+    float: left;
+    height: 20px;
+    padding: 7px 0 0;
+}
+
+.u-coursetitle .u-rating span {
+    font-size: 14px;
+    line-height: 16px;
+}
+
+.m-ctb {
+    width: 380px;
+}
+
+.m-ctb .courseintro {
+    height: 67px;
+    padding: 15px;
+    background: #abadb0;
+}
+
+.m-ctb .courseTitle {
+    height: 67px;
+    overflow: hidden;
+}
+
+.m-ctb .courseImg {
+    width: 120px;
+    height: 66px;
+    box-shadow: 0px 0px 4px #666;
+}
+
+.m-ctb .courseImgCover {
+    position: relative;
+}
+
+.m-ctb .courseImgCover:hover .courseImg-link {
+    background-color: #10ae58;
+    filter: alpha(opacity=40);
+    opacity: 0.4;
+}
+
+.m-ctb .courseImg-link {
+    opacity: 0;
+    filter: alpha(opacity=0);
+    transition: all 0.2s ease-in 0s;
+    position: absolute;
+    left: 5px;
+    height: 66px;
+    width: 120px;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.m-ctb .tabs {
+    height: 50px;
+    background: #d2d5da;
+    font-family: '微软雅黑';
+    width: 100%;
+}
+
+.m-ctb .tabitem {
+    float: left;
+    height: 50px;
+    width: 33.33%;
+    text-align: center;
+    line-height: 50px;
+    color: #fff;
+    background: #3a3e4a;
+}
+
+.m-ctb .tabitem-pos {
+    color: #fff;
+    background: #4b505f;
+}
+
+.m-ctb .tabicon {
+    margin: 15px 5px 0 30px;
+}
+
+.m-ctb .tab-talk {
+    display: none;
+}
+
+.m-ctb .tabs2 .tab-talk {
+    display: block;
+}
+
+.m-ctb .tabs2 .tabitem {
+    width: 80px;
+}
+
+.m-ctb .tabs2 .tabicon {
+    margin-left: 18px;
+}
+
+.m-ctb .tabarea {
+    position: absolute;
+    top: 55px;
+    left: 0;
+    width: 380px;
+    bottom: 0;
+    overflow: hidden;
+    background: #4b505f;
+}
+
+.m-ctb .tabarea-list {
+    background: #323336;
+}
+
+.m-ctb .tabarea-note, .m-ctb .tabarea-qa {
+    background: #fff;
+}
+
+.m-ctb .tabarea .bd {
+    position: absolute;
+    z-index: 1;
+    left: 61px;
+    top: 0;
+    border: none;
+    border-left: solid 1px #d3d3d3;
+    width: 0;
+    height: 100%;
+}
+
+.m-ctb .tabarea .tabbox {
+    position: absolute;
+    top: -10px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow-y: auto
+}
+
+.m-ctb .tabarea .asktabbox {
+    background: #f5f7fa;
+}
+
+.m-ctb .tabarea .m-chapterlistBox {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    z-index: 70;
+    overflow-y: auto;
+    zoom: 1;
+}
+
+.u-livetalk {
+    padding: 10px 0 0 10px;
+}
+
+.u-livetalk .main {
+    margin-left: 10px;
+}
+
+.u-livetalk .name, .u-livetalk .date, .u-livetalk .shuo {
+    font-size: 12px;
+    color: #999;
+}
+
+.u-livetalk .name {
+    width: 180px;
+}
+
+.u-livetalk .date {
+    margin-right: 20px;
+}
+
+.u-livetalk .cnt {
+    width: 240px;
+    color: #666;
+    font-size: 12px;
+    font-family: '宋体';
+    line-height: 1.8;
+    padding: 5px 10px 5px 0;
+    border-bottom: 1px solid #C5C5C5;
+    word-break: break-all;
+    word-wrap: break-all;
+}
+
+.m-toolbarForum .u-forumli .forumi {
+    padding: 0;
+}
+
+.m-toolbarForum .u-forumname, .m-toolbarForum .u-forumanonymous {
+    margin-left: 5px;
+    max-width: 120px;
+    position: relative;
+    top: 6px;
+}
+
+.m-toolbarForum .u-forumli .cnt {
+    padding: 14px 0;
+}
+
+.m-toolbarForum .u-forumli .head .time {
+    margin-left: 5px;
+}
+
+.m-toolbarForum .u-forumli .num {
+    display: none;
+}
+
+.m-toolbarForum .edit {
+    padding: 10px;
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 10;
+    background: #fff;
+    box-shadow: 0 0 1em #d0d6d9;
+}
+
+.m-toolbarForum .edit .forumSel {
+    position: relative;
+    z-index: 103;
+    overflow: hidden
+}
+
+.m-toolbarForum .edit .forumSel .link {
+    font-weight: bold;
+    padding-left: 10px;
+    color: #888;
+    font-size: 12px;
+}
+
+.m-toolbarForum .edit .forumSel .u-select {
+    width: 55px;
+    background: transparent;
+    border-width: 0;
+    padding-left: 0;
+    float: left;
+}
+
+.m-toolbarForum .edit .postBtn {
+    margin-top: 5px;
+    display: block;
+    width: 78px;
+    width: 78px;
+    text-decoration: none;
+    background-position: 68px 0px;
+}
+
+.m-toolbarForum .edit .postBtn span {
+    display: block;
+    text-align: center;
+    padding-left: 10px;
+    width: 78px;
+    font-size: 12px;
+    height: 34px;
+    line-height: 33px;
+    color: #fff;
+    background-position: -40px 0px;
+}
+
+.m-toolbarForum .edit .postBtn:hover {
+    background-position: 68px -50px;
+}
+
+.m-toolbarForum .edit .postBtn:hover span {
+    background-position: -40px -50px;
+}
+
+.m-toolbarForum .edit .postBtn:active {
+    background-position: 68px -100px;
+}
+
+.m-toolbarForum .edit .postBtn:active span {
+    background-position: -40px -100px;
+}
+
+.m-toolbarForum .posts {
+    top: 10px;
+    overflow: auto;
+    padding: 10px;
+}
+
+.m-toolbarForum .posts .list .u-forumli {
+    padding: 15px;
+    background: #fff;
+    margin-bottom: 10px;
+    box-shadow: 0 0 1px #d2d5da;
+}
+
+.m-toolbarForum .posts .list .u-forumli:hover {
+    cursor: pointer;
+    background: #3a3e4a;
+}
+
+.m-toolbarForum .posts .list .u-forumli:hover .s-fc5 {
+    color: #c3c0c0
+}
+
+.m-toolbarForum .posts .list .u-forumli .u-forumlesson {
+    margin-right: 20px;
+}
+
+.m-toolbarForum .posts .list .u-forumli .head .name {
+    max-width: 65px;
+}
+
+.m-toolbarForum .posts .list .u-forumli .cnt {
+    white-space: pre-line;
+    word-wrap: break-word;
+}
+
+.m-toolbarForum .posts .pager.ui-pager .zpgi {
+    width: 14px;
+}
+
+.u-edit, .m-mostAsk .editArea {
+    position: relative;
+    z-index: 101;
+    background: #FAFAFA;
+    border: 1px solid #DFDFDF;
+    box-shadow: inset 1px 1px 2px #DFDFDF;
+    padding: 5px;
+}
+
+.u-edit .wrap, .m-mostAsk .editArea .wrap {
+    position: relative;
+    z-index: 101;
+    width: 100%;
+    height: 100%;
+}
+
+.u-edit .mtxt, .m-mostAsk .editArea .mtxt {
+    display: block;
+    font-size: 14px;
+    position: relative;
+    z-index: 101;
+    line-height: 23px;
+    width: 100%;
+    height: 100%;
+    resize: none;
+    background: transparent;
+    border: none;
+    color: #444;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.u-edit .hint, .m-mostAsk .editArea .hint {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: #999;
+}
+
+body {
+    background: #3a3e4a;
+    overflow: hidden;
+    padding: 0 !important;
+}

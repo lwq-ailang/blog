@@ -1,0 +1,202 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>发布文章 - IBooking</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Access-Control-Allow-Origin" content="*">
+    <meta http-equiv="Cache-Control" content="no-transform ">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta name="keywords"
+          content="ITbooking网，ITbooking官网，MOOC，移动开发，IT技能培训，免费编程视频，php开发教程，web前端开发，在线编程学习，html5视频教程，css教程，ios开发培训，安卓开发教程">
+    <meta name="description"
+          content="ITbooking网（IMOOC）是学习编程最简单的免费平台。ITbooking网提供了丰富的移动端开发、php开发、web前端、html5教程以及css3视频教程等课程资源。它富有交互性及趣味性，并且你可以和朋友一起编程。">
+    <#include "../common/header.html"/>
+</head>
+<body data-ext-version="3.1" style="">
+
+<div id="app">
+    <div id="main" style="">
+        <div class="article-head clearfix">
+            <div class="draft-warp clearfix">
+                <div class="draft-btn js-mydraft">
+                    <p>
+                        <i class="imv2-shouji"></i>
+                        <span class="draft-btn-text">我的草稿</span>
+                    </p>
+                    <span class="draft-num" id="draft_num">5</span>
+                </div>
+                <p class="draft-tip" id="draft_tip">已保存</p>
+                <div class="draft-container" style="display:none;">
+                    <span class="arrow-icon"></span>
+                    <div class="draft-container-title clearfix">
+                        <span>我的草稿</span>
+                        <span>草稿最长保存60天，发表后自动清除</span>
+                    </div>
+                    <div class="nano draft-list js-draft-nano has-scrollbar">
+                        <div class="nano-content" id="draft_list" tabindex="0" style="right: -8px;"><a
+                                href="/article/draft/id/53026"
+                                class="draft-item clearfix md-opjjpmhoiojifppkkcdabiobhakljdgm_doc" data-id="53026"> <i
+                                class="imv2-description draft-icon"></i>
+                            <div class="draft-item-info"><h4 title="无名草稿">无名草稿</h4>
+                                <p>2018-09-29保存</p></div>
+                            <i class="imv2-close draft-del js-draft-del"></i> </a><a href="/article/draft/id/52955"
+                                                                                     class="draft-item clearfix md-opjjpmhoiojifppkkcdabiobhakljdgm_doc"
+                                                                                     data-id="52955"> <i
+                                class="imv2-description draft-icon"></i>
+                            <div class="draft-item-info"><h4 title="无名草稿">无名草稿</h4>
+                                <p>2018-09-29保存</p></div>
+                            <i class="imv2-close draft-del js-draft-del"></i> </a><a href="/article/draft/id/52949"
+                                                                                     class="draft-item clearfix md-opjjpmhoiojifppkkcdabiobhakljdgm_doc"
+                                                                                     data-id="52949"> <i
+                                class="imv2-description draft-icon"></i>
+                            <div class="draft-item-info"><h4 title="无名草稿">无名草稿</h4>
+                                <p>2018-09-29保存</p></div>
+                            <i class="imv2-close draft-del js-draft-del"></i> </a><a href="/article/draft/id/52940"
+                                                                                     class="draft-item clearfix md-opjjpmhoiojifppkkcdabiobhakljdgm_doc"
+                                                                                     data-id="52940"> <i
+                                class="imv2-description draft-icon"></i>
+                            <div class="draft-item-info"><h4 title="无名草稿">无名草稿</h4>
+                                <p>2018-09-29保存</p></div>
+                            <i class="imv2-close draft-del js-draft-del"></i> </a></div>
+                        <div class="nano-pane" style="display: none;">
+                            <div class="nano-slider" style="height: 20px; transform: translate(0px, 0px);"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <span class="publish-btn js-article-publish" id="sendBlog">发表</span>
+        </div>
+
+        <div class="article-wrap" style="width: 96%; opacity: 1; margin: 0px auto; display: block;"><p
+                class="grammer-demo-title" style="display: none;">Markdown语法演示<i
+                class="imv2-close close-grammer-demo"></i>
+        </p>
+            <input type="text" id="article_title" class="article-title" placeholder="请在此输入标题"
+                   style="width: 50%; border-right: none; display: inline-block;">
+
+            <div id="layout" @paste="paste" data-opid="">
+                <div id="test-editormd">
+                    <textarea style="display:none;"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="${basePath}/js/mdeditor/js/editormd.min.js"></script>
+<script type="text/javascript">
+    var testEditor;
+    $(function () {
+        new Vue({
+            el: '#app',
+            data: {
+                imgs: []
+            },
+            methods: {
+                // 监听当前剪切板的事件
+                paste(event) {
+                    var cdata = (event.clipboardData || window.clipboardData);
+                    var items = cdata.items;
+                    if (items && items.length) {
+                        try {
+                            var reader = new FileReader();
+                            var file = items[0].getAsFile()
+                            reader.readAsDataURL(file);
+                            var data = new FormData();
+                            data.append('doc', file)
+                            reader.onload = function (event) {
+                                let url = '../upload/file' //你的后台上传地址
+                                axios.post(url, data).then(res = > {
+                                    testEditor.replaceSelection("![](" + res.data.url + ")");
+                            }).
+                                catch(error = > {
+                                    console.log(error)
+                                }
+                            )
+                            }
+                        } catch (err) {
+
+                        }
+                    }
+                }
+            }
+        })
+
+        //  初始化富文本编辑器
+        // TODO：参考网站https://pandao.github.io/editor.md/
+        testEditor = editormd("test-editormd", {
+            width: "100%",
+            height: $(window).height() - 190,
+            //codeFold : true,
+            //syncScrolling : false,
+            saveHTMLToTextarea: true,    // 保存 HTML 到 Textarea
+            //searchReplace : true,
+            watch: true,                // 关闭实时预览
+            htmlDecode: "style,script,iframe|on*",            // 开启 HTML 标签解析，为了安全性，默认不开启
+            //toolbar  : false,             //关闭工具栏
+            //previewCodeHighlight : false, // 关闭预览 HTML 的代码块高亮，默认开启
+            emoji: true,
+            taskList: true,
+            tocm: true,         // Using [TOCM]
+            tex: true,                   // 开启科学公式TeX语言支持，默认关闭
+            flowChart: true,             // 开启流程图支持，默认关闭
+            sequenceDiagram: true,       // 开启时序/序列图支持，默认关闭,
+            path: "${basePath}/js/mdeditor/lib/",
+            dialogLockScreen: false,   // 设置弹出层对话框不锁屏，全局通用，默认为true
+            dialogShowMask: false,     // 设置弹出层对话框显示透明遮罩层，全局通用，默认为true
+            dialogDraggable: false,    // 设置弹出层对话框不可拖动，全局通用，默认为true
+            dialogMaskOpacity: 0.4,    // 设置透明遮罩层的透明度，全局通用，默认值为0.1
+            dialogMaskBgColor: "#000", // 设置透明遮罩层的背景颜色，全局通用，默认为#fff
+            imageUpload: true,
+            imageFormats: ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
+            imageUploadURL: "    upload/file?dir=books",
+            onchange: function () {
+                if (this.tiemr) clearTimeout(this.tiemr);
+                this.tiemr = setTimeout(function () {
+                    var params = {
+                        id: $("#layout").data("opid"),
+                        description: this.getHTML(),
+                        mdcontent: this.getMarkdown()
+                    };
+                }, 300);
+
+            },
+            onwatch: function () {
+                console.log("onwatch =>", this, this.id, this.settings);
+            },
+            onload: function () {
+                //this.fullscreen();
+                //this.unwatch();
+                //this.watch().fullscreen();
+
+                //this.width("100%");
+                //this.height(480);
+                //this.resize("100%", 640);
+            }
+        });
+
+
+        $("#sendBlog").on("click", function () {
+            var content = testEditor.getHTML();
+            console.log(content);
+        })
+    });
+
+    function insertContent() {
+        testEditor.replaceSelection("$$$$$$$$$");
+    }
+
+    function getHTML() {
+        return testEditor.getHTML();
+    }
+
+    function getMarkdown() {
+        return testEditor.getMarkdown();
+    }
+</script>
+
+</body>
+</html>

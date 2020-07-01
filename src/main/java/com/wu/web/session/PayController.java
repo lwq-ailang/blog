@@ -52,8 +52,8 @@ public class PayController extends BaseController {
      * TODO 第二种：通过学习基础中集成父类的概念，把公共获取用户状态的信息进行封装。然后子类进行继承达到一个初级别的复用。
      *        问题：上面虽然通过父类已经达到一基本抽离，但是代码的耦合度还是存在。
      */
-    @GetMapping("alipay")
-    public String alipay() {
+    @GetMapping("unionpay")
+    public String unionpay() {
         UserDo userDo = getUserDo();
         if (userDo != null) {
             log.info("你服务器端的用户信息是是：{}", userDo);
@@ -77,7 +77,7 @@ public class PayController extends BaseController {
      *              3.2返回true执行resolveArgument方法，请求参数被注入，再进入SpringMVC方法中
      *      4.方法执行完毕，进入拦截器-->postHandle方法-->afterCompletion方法
      */
-    @GetMapping("alipay")
+    @GetMapping("pay")
     public String pay(UserDo userDo) {
         if (userDo != null) {
             log.info("4----->你服务器端的用户信息是是：{}", userDo);
